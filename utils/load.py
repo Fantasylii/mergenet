@@ -25,7 +25,7 @@ class LoadData_train():
         self.val_file = val_file
 
         self.data = self.load_data()
-
+ 
     def load_data(self):
         with open(self.path_to_json_file, 'r') as f:
             train_data = json.load(f)
