@@ -17,10 +17,27 @@ conda create -n mergenet
 Example 1. test LOOK-M
 ```
 conda activate mergenet
-python run_
+python run_res50_mbv2.py
 ```
-Exampke 2. test model without strategy
+Exampke 2. test KD strategy
 ```
 conda activate mergenet
-bash ./scripts/origin_eval.sh
+python NKD.py
 ```
+
+## Citation
+
+#### If you find our work valuable, we would appreciate your citation: 🎈
+
+
+```bibtex
+@article{li2024mergenet,
+  title={MergeNet: Knowledge Migration across Heterogeneous Models, Tasks, and Modalities},
+  author={Li, Kunxi and Zhan, Tianyu and Fu, Kairui and Zhang, Shengyu and Kuang, Kun and Li, Jiwei and Zhao, Zhou and Wu, Fei},
+  journal={arXiv preprint arXiv:2404.13322},
+  year={2024}
+}
+```
+
+
+#### The code is still being organized.🚧
