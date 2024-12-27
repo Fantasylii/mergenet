@@ -24,14 +24,14 @@ transform_test = transforms.Compose([
 ])
 
 train_dataloader = DataLoader(
-    datasets.cifar.CIFAR100(root=r'/data/likunxi/attention/data/', train=True, transform=transform_train, download=True),
+    datasets.cifar.CIFAR100(root=r' ', train=True, transform=transform_train, download=True),
     batch_size=128,
     shuffle=True,
     num_workers=4
 )
 
 test_dataloader = DataLoader(
-    datasets.cifar.CIFAR100(root=r'/data/likunxi/attention/data/', train=False, transform=transform_test, download=True),
+    datasets.cifar.CIFAR100(root=r'', train=False, transform=transform_test, download=True),
     batch_size=128,
     shuffle=False,
     num_workers=4

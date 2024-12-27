@@ -30,14 +30,14 @@ def time_since(since):
     s -= m * 60
     return '%dm %ds' % (m, s)
 
-logging.basicConfig(filename='/data/likunxi/attention/log_0206_mbv.txt',
+logging.basicConfig(filename='',
                     format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def train(res):
-    device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print("Runnint at ", device)
     print(torch.cuda.get_device_name())
     res.to(device)
@@ -110,7 +110,7 @@ def test(model, device):
             top5_acc += torch.eq(pred5, label_resize).sum().float().item()
         if top1_acc / total > best_acc_res:
             best_acc_res = top1_acc / total
-            torch.save(model.state_dict(), '/data/likunxi/attention/checkpoint/mbv_base.pkl')
+            torch.save(model.state_dict(), '')
     return 100. * top1_acc / total, 100. * top5_acc / total
         
 def main():
@@ -129,20 +129,16 @@ def main():
     os.environ ['NUMEXPR_NUM_THREADS'] = str(cpu_num)
     torch.set_num_threads(cpu_num)
 
-    # config = yaml.load(open('/data/likunxi/attention/config/param_attention_config.yaml', 'r'), Loader=yaml.Loader)
 
     logger.info(f'Linear -> Linear')
     
     start = time.time()
     logger.info('Start write!!!\n')
 
-    # res = resnet50()
     res = mobilenetv2()
-    # res.load_state_dict(torch.load('/data/likunxi/attention/checkpoint/res_base.pkl', map_location="cpu"))
     print(f"Resnet 50: {sum(p.numel() for p in res.parameters())}")
     train(res)
 
 if __name__ == '__main__':
     res = mobilenetv2()
-    print(res)
-    # main()
+    main()

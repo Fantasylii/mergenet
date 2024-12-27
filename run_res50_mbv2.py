@@ -30,7 +30,7 @@ def time_since(since):
     s -= m * 60
     return '%dm %ds' % (m, s)
 
-logging.basicConfig(filename='/data/likunxi/attention/log_0213.txt',
+logging.basicConfig(filename='',
                     format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
@@ -224,10 +224,10 @@ def test(model, device, model_name):
             top5_acc += torch.eq(pred5, label_resize).sum().float().item()
         if model_name == 'Mbv' and top1_acc / total > best_acc_mbv:
             best_acc_mbv = top1_acc / total
-            torch.save(model.state_dict(), '/data/likunxi/attention/checkpoint/mbv2_cifar100.pkl')
+            torch.save(model.state_dict(), '')
         elif model_name == 'Res' and top1_acc / total > best_acc_res:
             best_acc_res = top1_acc / total
-            torch.save(model.state_dict(), '/data/likunxi/attention/checkpoint/res50_cifar100.pkl')
+            torch.save(model.state_dict(), '')
     return 100. * top1_acc / total, 100. * top5_acc / total, running_loss / len(test_dataloader)
         
 def main():
@@ -247,7 +247,7 @@ def main():
     os.environ ['NUMEXPR_NUM_THREADS'] = str(cpu_num)
     torch.set_num_threads(cpu_num)
 
-    config = yaml.load(open('/data/likunxi/attention/config/param_attention_config.yaml', 'r'), Loader=yaml.Loader)
+    config = yaml.load(open('', 'r'), Loader=yaml.Loader)
 
     logger.info(f'Linear -> Linear')
     
