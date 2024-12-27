@@ -4,7 +4,7 @@
 
 > *<sup>1</sup>Zhejiang University, <sup>2</sup>Shanghai Jiao Tong University*
 
-<h5 align=center>
+<h5 align=center> 
 
 [![arXiv](https://img.shields.io/badge/Arxiv-2404.13322-red?logo=arxiv&label=Arxiv&color=green)](https://arxiv.org/abs/2404.13322)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Fantasylii/mergenet)
